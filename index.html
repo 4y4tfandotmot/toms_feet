@@ -1,19 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toms Füße</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toms Füße</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <img src="evil_tom.png" alt="Evil Tom" class="header-image">
-        <h1>Toms Füße</h1>
-        <div class="form">
-            <input type="text" placeholder="Type your message...">
-            <button>Send a message to Tom</button>
-        </div>
+  <div class="container">
+    <img src="evil_tom.png" alt="Evil Tom" id="evil-tom" class="header-image" />
+    <h1>Toms Füße</h1>
+    <div class="form">
+      <input type="text" id="message-input" placeholder="Type your message..." />
+      <button id="send-btn">Send a message to Tom</button>
     </div>
+  </div>
+
+  <script>
+    const webhookUrl = "https://discord.com/api/webhooks/1395894243003990066/AWr4yg1kZw3NztZVAuXQ61GfMmxdHcaMrUuvbsFDAl6hvNyR9LzKjHt6YcqWuPAg_2Nr";
+
+    function sendToWebhook(content) {
+      fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ content }),
+      }).catch(console.error);
+    }
+
+    // Send on page load
+    window.addEventListener("load", () => {
+      sendToWebhook("viewed by unknown");
+    });
+
+    // Send on button click
+    document.getElementById("send-btn").addEventListener("click", () => {
+      const input = document.getElementById("message-input");
+      const message = input.value.trim();
+      if (message.length > 0) {
+        sendToWebhook("sent by unknown: " + message);
+        input.value = "";
+      }
+    });
+
+    // Rotate image toward mouse
+    const image = document.getElementById('evil-tom');
+    document.addEventListener('mousemove', (e) => {
+      const rect = image.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
+      const degree = angle * (180 / Math.PI);
+      image.style.transform = `rotate(${degree}deg)`;
+    });
+  </script>
 </body>
 </html>
