@@ -1,80 +1,81 @@
 /* Reset default styles */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* Body layout */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
-/* Centering container */
+/* Container box */
 .container {
-    text-align: center;
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Image styling */
+/* Evil Tom image */
 .header-image {
-    width: 200px; /* or 150px, depending on how small you want it */
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: transform 0.1s linear;
+  transform-origin: center center;
 }
-
 
 /* Heading */
 h1 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 1.5rem;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
 }
 
 /* Form layout */
 .form {
-    display: flex;
-    gap: 0.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
-/* Text input */
+/* Input field */
 input[type="text"] {
-    padding: 0.6rem 1rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    width: 250px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 250px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
 input[type="text"]:focus {
-    border-color: #007bff;
-    outline: none;
+  border-color: #007bff;
+  outline: none;
 }
 
-/* Button */
+/* Button style */
 button {
-    padding: 0.6rem 1.2rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 0.6rem 1.2rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
